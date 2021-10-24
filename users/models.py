@@ -1,6 +1,6 @@
 from django.db              import models
 
-from test_board.core.models import TimeStamp
+from core.models import TimeStamp
 
 class User(TimeStamp):
     name          = models.CharField(max_length=100)

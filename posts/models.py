@@ -1,6 +1,6 @@
-from django.db              import models
+from django.db    import models
 
-from test_board.core.models import TimeStamp
+from core.models  import TimeStamp
 
 class Post(TimeStamp):
     title   = models.CharField(max_length=45)
@@ -11,7 +11,7 @@ class Post(TimeStamp):
 
 class Image(models.Model):
     image_url = models.CharField(max_length=2000)
-    post      = models.ForeignKey('Post', on_delete=models.CASCADE)
+    post      = models.ForeignKey(Post, on_delete=models.CASCADE)
 
     class Meta:
         db_table = 'images'
