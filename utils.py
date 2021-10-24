@@ -19,10 +19,6 @@ def login_required(func):
             return JsonResponse({'message' : 'INVALID_USER'}, status = 400)
 
         except JSONDecodeError:
-            return JsonResponse({'message' : 'UNKNOWN_USER'}, status = 400)
-
-        except UnicodeDecodeError:
-            return JsonResponse({'message' : 'UNKNOWN_USER'}, status = 400)
-
+            return JsonResponse({'message' : 'INVALID_TOKEN'}, status = 400)
 
     return wrapper

@@ -2,7 +2,6 @@ import json
 
 from django.http  import JsonResponse
 from django.views import View
-from django.db    import IntegrityError
 
 from .models      import Post
 from utils        import login_required
@@ -60,7 +59,7 @@ class PostView(View):
 
             if not post.user == user:
                 return JsonResponse({'message' : 'INVALID_USER'})
-                
+
             post.title = data.get('title', post.title)
             post.content = data.get('content', post.content)
             post.save()
